@@ -28,5 +28,6 @@ login
 line vty 0 4
 password Passw0rd!
 login
-enable Passw0rd!
+enable secret Passw0rd!
 do copy run start
+
