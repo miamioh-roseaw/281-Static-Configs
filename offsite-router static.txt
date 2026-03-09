@@ -23,10 +23,11 @@ ip route 172.16.1.0 255.255.255.0 g0/2
 ip route 192.168.1.0 255.255.255.0 g0/1
 
 line con 0
-password cisco
+password Passw0rd!
 login
 line vty 0 4
-password cisco
+password Passw0rd!
 login
-enable secret cisco
+enable secret Passw0rd!
 do copy run start
+
