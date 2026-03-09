@@ -1,0 +1,28 @@
+en
+conf t
+hostname oh-int
+interface gi0/0
+ip address 8.1.1.2 255.255.255.0
+
+no shut
+interface gi0/1
+ip address 172.16.1.1 255.255.255.0
+no shut
+
+
+interface gi0/2
+ip address 10.1.1.1 255.255.255.0
+no shut
+
+ip route 0.0.0.0 0.0.0.0 g0/0
+
+line con 0
+password Passw0rd!
+login
+line vty 0 4
+password Passw0rd!
+login
+enable Passw0rd!
+
+
+do copy run start

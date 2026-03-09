@@ -1,0 +1,32 @@
+en
+conf t
+hostname ky-int
+interface gi0/0
+ip address 5.1.1.2 255.255.255.0
+
+no shut
+interface gi0/1
+ip address 11.1.1.1 255.255.255.0
+
+interface gi0/1
+no shut
+ip dhcp pool roseaw-corp 
+network 11.1.1.0 255.255.255.0
+default-router 11.1.1.1
+dns-server 11.1.1.1
+
+ip dhcp pool guest 
+network 12.1.1.0 255.255.255.0
+default-router 12.1.1.1
+dns-server 12.1.1.1
+
+ip route 0.0.0.0 0.0.0.0 g0/0
+
+line con 0
+password Passw0rd!
+login
+line vty 0 4
+password Passw0rd!
+login
+enable secret cisco
+do copy run start

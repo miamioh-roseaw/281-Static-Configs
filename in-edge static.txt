@@ -1,0 +1,32 @@
+en
+conf t
+hostname in-edge
+interface gi0/0
+ip address 1.1.1.1 255.255.255.0
+no shut
+interface gi0/1
+ip address 7.1.1.2 255.255.255.0
+no shut
+interface gi0/2
+ip address 192.168.1.1 255.255.255.0
+no shut
+
+ip route 2.1.1.0 255.255.255.0 g0/0
+ip route 3.1.1.0 255.255.255.0 g0/0
+ip route 4.1.1.0 255.255.255.0 g0/0
+ip route 5.1.1.0 255.255.255.0 g0/0
+ip route 6.1.1.0 255.255.255.0 g0/1
+ip route 8.1.1.0 255.255.255.0 g0/1
+ip route 10.1.1.0 255.255.255.0 g0/1
+ip route 11.1.1.0 255.255.255.0 g0/1
+ip route 12.1.1.0 255.255.255.0 g0/1
+ip route 172.16.1.0 255.255.255.0 g0/1
+
+line con 0
+password Passw0rd!
+login
+line vty 0 4
+password Passw0rd!
+login
+enable Passw0rd!
+do copy run start
